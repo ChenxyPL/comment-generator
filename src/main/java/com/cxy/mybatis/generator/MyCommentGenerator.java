@@ -281,7 +281,7 @@ public class MyCommentGenerator implements CommentGenerator {
 
         sb.setLength(0);
         sb.append(" * @author ");
-        sb.append(systemPro.getProperty("user.name"));
+        sb.append(!isBlank(properties.getProperty("user.name")) ? properties.getProperty("user.name") : systemPro.getProperty("user.name"));
         sb.append(" ");
         sb.append(currentDateStr);
 
