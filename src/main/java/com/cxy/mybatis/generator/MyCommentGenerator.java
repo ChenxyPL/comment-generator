@@ -202,7 +202,12 @@ public class MyCommentGenerator implements CommentGenerator {
 
         sb.setLength(0);
         sb.append(" * @author ");
-        sb.append(systemPro.getProperty("user.name"));
+        String userName = properties.getProperty("user.name");
+        if (userName != null && userName != "") {
+            sb.append(userName);
+        } else {
+            sb.append(systemPro.getProperty("user.name"));
+        }
         topLevelClass.addJavaDocLine(sb.toString());
         sb.setLength(0);
         sb.append(" * @since ");
